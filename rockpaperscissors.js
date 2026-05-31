@@ -4,19 +4,33 @@
  //get input from user
 // same timing
 
- //rock wins to scissor but loses to paper
- // paper wins rock but loses to scissor
- //scissor wins paper but loses to rock
-
-/*let rock = "rock"
-let paper ="paper"=
-let scisssor ="Scissors"
-*/
-//computer randomly take the values from string values and randomly choose from em
-//function  getComputerchoice ()
+const PromptSync = require('prompt-sync')();
 
 
-if (i=2 ){
-   let randNum = Math.random();
-   console.log(randNum);
+
+ 
+ function gethumanchoice() {
+      let promptchoice = PromptSync(' Your Turn : ')
+      return promptchoice;
 }
+console.log(gethumanchoice());
+
+function getcomputerchoice () {
+    let generate = Math.floor(Math.random() * 3 )//, function body:return string values likr rock paper  scissor
+    switch (generate) {
+    case 0:
+        return "Rock";
+        break;
+        case 1:
+            return "Paper";
+            break;
+            case 2:
+                return "Scissor";
+                break;
+     
+    }
+      
+}
+console.log(getcomputerchoice());
+
+
