@@ -6,7 +6,8 @@ const prompt = PromptSync();
 
  function gethumanchoice() {
      let choice = prompt("Your Turn :")
-    return choice ;
+    
+    return choice.charAt(0).toUpperCase()+choice.slice(1).toLowerCase() ;
  }
 
 function getcomputerchoice () {
@@ -29,32 +30,45 @@ function getcomputerchoice () {
     
 }
 
-let humanScore  = 0;
-let computerScore = 0;
 
-
- 
+// loop the play round till 5 and increase the score too based on who wins
+   let humanScore  = 0;
+let computerScore = 0
+    
  function PlayRound(humanChoice, computerChoice) {
- 
   
+ 
     if (
         (humanChoice === "Paper" && computerChoice === "Rock") ||
         (humanChoice === "Scissor" && computerChoice === "Paper") ||
         (humanChoice === "Rock" && computerChoice === "Scissor")
     ) {
         console.log("You win!");
-        humanScore++;
+       humanScore++;
+        console.log("Human score:", humanScore);
 
     } else if (humanChoice === computerChoice) {
         console.log("It's a Tie");
     
     } else {
         console.log("You lose, Computer wins");
-        computerScore++;
+    computerScore++;
+        console.log("Computer:", computerScore)
     }
-    
+}
     
 
-}
 PlayRound(gethumanchoice(), getcomputerchoice());
-console.log(humanScore, computerScore);
+
+// loop PlayRound till 5 times
+// and increase score till 5
+//increase score whoever wins and till 5 
+
+function PlayGame (){
+   
+    for (let  round = 0; round < 4; PlayRound(gethumanchoice(), getcomputerchoice()) ){
+     round++;
+    }
+}
+PlayGame();
+//console.log(humanScore, computerScore);
